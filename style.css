@@ -209,6 +209,87 @@ p:last-child { margin-bottom: 0; }
   line-height: 1.9;
 }
 
+/* ── CTA lead text ── */
+.cta-lead {
+  color: rgba(255,255,255,0.75);
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* ── Column grid ── */
+.column-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.column-card {
+  background: var(--off-white);
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.column-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.column-tag {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  padding: 2px 8px;
+  white-space: nowrap;
+}
+
+.column-card__meta time {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  letter-spacing: 0.05em;
+}
+
+.column-card__title {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--navy);
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.column-card__excerpt {
+  font-size: 0.85rem;
+  line-height: 1.85;
+  color: var(--text-light);
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.column-link {
+  font-size: 0.8rem;
+  color: var(--gold);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  align-self: flex-start;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+
+.column-link:hover {
+  border-bottom-color: var(--gold);
+}
+
+/* ── Contact CTA ── */
+#contact .btn {
+  margin-top: 8px;
+}
+
 /* ── Footer ── */
 footer {
   background: var(--navy);
@@ -233,7 +314,8 @@ footer {
     font-size: 1.25rem;
   }
 
-  .service-grid {
+  .service-grid,
+  .column-grid {
     grid-template-columns: 1fr;
   }
 
