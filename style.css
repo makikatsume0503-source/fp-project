@@ -189,6 +189,7 @@ p:last-child { margin-bottom: 0; }
   background: var(--white);
   padding: 40px 32px;
   position: relative;
+  text-align: center;
 }
 
 .service-card::before {
@@ -197,7 +198,7 @@ p:last-child { margin-bottom: 0; }
   width: 24px;
   height: 2px;
   background: var(--gold);
-  margin-bottom: 20px;
+  margin: 0 auto 20px;
 }
 
 .service-card h3 {
