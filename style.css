@@ -150,6 +150,10 @@ p {
 
 p:last-child { margin-bottom: 0; }
 
+.container.center.narrow p {
+  text-align: center;
+}
+
 /* ── Sections ── */
 .section {
   padding: 96px 0;
