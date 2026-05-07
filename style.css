@@ -162,6 +162,7 @@ p:last-child { margin-bottom: 0; }
 .section.navy p,
 .section.navy .section-label {
   color: var(--white);
+  text-align: center;
 }
 
 .section.navy .section-label {
