@@ -291,6 +291,16 @@ p:last-child { margin-bottom: 0; }
   border-bottom-color: var(--gold);
 }
 
+/* ── Highlight text ── */
+.highlight {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+}
+
 /* ── Contact CTA ── */
 #contact .btn {
   margin-top: 8px;
