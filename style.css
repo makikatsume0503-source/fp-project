@@ -35,7 +35,7 @@ body {
 }
 
 .container.narrow {
-  max-width: 680px;
+  max-width: 600px;
 }
 
 .center { text-align: center; }
@@ -136,6 +136,7 @@ p {
   color: var(--text-light);
   margin-bottom: 18px;
   line-height: 2;
+  text-align: left;
 }
 
 p:last-child { margin-bottom: 0; }
@@ -179,6 +180,8 @@ p:last-child { margin-bottom: 0; }
   background: #e8e5e0;
   margin-top: 48px;
   border: 1px solid #e8e5e0;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 .service-card {
