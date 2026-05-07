@@ -82,6 +82,15 @@ body {
   transform: translateY(-1px);
 }
 
+.btn.coming-soon {
+  background: transparent;
+  color: rgba(255,255,255,0.5);
+  border: 1px solid rgba(255,255,255,0.25);
+  cursor: default;
+  letter-spacing: 0.15em;
+  font-style: italic;
+}
+
 .btn.large {
   padding: 18px 56px;
   font-size: 1rem;
