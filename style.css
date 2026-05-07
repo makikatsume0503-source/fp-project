@@ -1,0 +1,124 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  color: #333;
+  line-height: 1.8;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.container.narrow {
+  max-width: 680px;
+}
+
+.center {
+  text-align: center;
+}
+
+/* Hero */
+.hero-banner {
+  width: 100%;
+}
+
+.hero-banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* CTA */
+.cta-under-hero {
+  padding: 40px 24px;
+  background: #fff;
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: opacity 0.2s;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+.btn.primary {
+  background: #2c6e9e;
+  color: #fff;
+}
+
+.btn.large {
+  padding: 16px 48px;
+  font-size: 1.1rem;
+}
+
+/* Sections */
+.section {
+  padding: 64px 0;
+}
+
+.section.white {
+  background: #fff;
+}
+
+.section.gray {
+  background: #f7f7f5;
+}
+
+.section-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: #888;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+p {
+  margin-bottom: 16px;
+}
+
+/* Service grid */
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.service-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 32px 24px;
+}
+
+.service-card h3 {
+  font-size: 1.05rem;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 768px) {
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  .section {
+    padding: 48px 0;
+  }
+}
