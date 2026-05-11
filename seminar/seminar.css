@@ -1,0 +1,217 @@
+/* ── Seminar Header ── */
+.seminar-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--white);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  padding: 14px 0;
+}
+
+.seminar-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 960px;
+}
+
+.seminar-header__logo {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+  color: var(--navy);
+  text-decoration: none;
+}
+
+.seminar-header__cta {
+  padding: 10px 28px;
+  font-size: 0.85rem;
+}
+
+/* ── Seminar Hero ── */
+.seminar-hero {
+  background: var(--navy);
+  padding: 100px 0 80px;
+}
+
+.seminar-hero .section-label {
+  color: var(--gold-light);
+}
+
+.seminar-hero .section-label::after {
+  background: var(--gold-light);
+}
+
+.seminar-hero__title {
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: 1.6;
+  color: var(--white);
+  letter-spacing: 0.04em;
+  margin-bottom: 24px;
+}
+
+.seminar-hero__sub {
+  color: rgba(255,255,255,0.75);
+  font-size: 0.95rem;
+  line-height: 2;
+  margin-bottom: 36px;
+  text-align: center;
+}
+
+.seminar-hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.seminar-badge {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: var(--gold-light);
+  border: 1px solid rgba(184,151,58,0.5);
+  padding: 5px 14px;
+  white-space: nowrap;
+}
+
+/* ── Check list ── */
+.check-list {
+  list-style: none;
+  text-align: left;
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.check-list li {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  padding-left: 28px;
+  position: relative;
+  line-height: 1.7;
+}
+
+.check-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 16px;
+  height: 10px;
+  border-left: 2px solid var(--gold);
+  border-bottom: 2px solid var(--gold);
+  transform: rotate(-45deg);
+}
+
+/* ── Curriculum ── */
+.curriculum-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 48px;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.curriculum-item {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+  padding: 32px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.curriculum-item:first-child {
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+.curriculum-num {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.5rem;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+  line-height: 1;
+  padding-top: 2px;
+}
+
+.curriculum-item h3 {
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.curriculum-item p {
+  font-size: 0.875rem;
+  margin-bottom: 0;
+  line-height: 1.9;
+}
+
+/* ── Overview table ── */
+.overview-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 40px;
+  text-align: left;
+}
+
+.overview-table th,
+.overview-table td {
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.overview-table th {
+  width: 40%;
+  color: var(--navy);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+.overview-table td {
+  color: var(--text-light);
+}
+
+.overview-table tr:first-child th,
+.overview-table tr:first-child td {
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+/* ── Lecturer ── */
+.lecturer-name {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--navy);
+  letter-spacing: 0.08em;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .seminar-hero__title {
+    font-size: 1.5rem;
+  }
+
+  .seminar-hero {
+    padding: 72px 0 60px;
+  }
+
+  .seminar-header__cta {
+    display: none;
+  }
+
+  .curriculum-item {
+    gap: 20px;
+  }
+
+  .overview-table th {
+    width: 38%;
+  }
+}
