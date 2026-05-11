@@ -28,35 +28,21 @@
   font-size: 0.85rem;
 }
 
-/* ── Seminar Hero ── */
-.seminar-hero {
+/* ── Seminar Hero Banner ── */
+.seminar-hero-banner {
+  width: 100%;
+  overflow: hidden;
+}
+
+.seminar-hero-banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.seminar-hero-cta {
   background: var(--navy);
-  padding: 100px 0 80px;
-}
-
-.seminar-hero .section-label {
-  color: var(--gold-light);
-}
-
-.seminar-hero .section-label::after {
-  background: var(--gold-light);
-}
-
-.seminar-hero__title {
-  font-family: "Noto Sans JP", sans-serif;
-  font-weight: 500;
-  font-size: 2rem;
-  line-height: 1.6;
-  color: var(--white);
-  letter-spacing: 0.04em;
-  margin-bottom: 24px;
-}
-
-.seminar-hero__sub {
-  color: rgba(255,255,255,0.75);
-  font-size: 0.95rem;
-  line-height: 2;
-  margin-bottom: 36px;
+  padding: 40px 32px;
   text-align: center;
 }
 
