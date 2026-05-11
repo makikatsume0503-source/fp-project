@@ -31,15 +31,15 @@
 /* ── Seminar Hero Banner ── */
 .seminar-hero-banner {
   width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
   overflow: hidden;
 }
 
 .seminar-hero-banner img {
   width: 100%;
-  max-width: 800px;
   height: auto;
   display: block;
-  margin: 0 auto;
 }
 
 .seminar-hero-cta {
