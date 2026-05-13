@@ -5,6 +5,7 @@ from .sns_post import SNSPostAgent
 from .homepage_renewal import HomepageRenewalAgent
 from .seminar_creator import SeminarCreatorAgent
 from .leader import LeaderAgent
+from .article_generator import ArticleGeneratorAgent
 
 __all__ = [
     "BaseAgent",
@@ -14,4 +15,5 @@ __all__ = [
     "HomepageRenewalAgent",
     "SeminarCreatorAgent",
     "LeaderAgent",
+    "ArticleGeneratorAgent",
 ]

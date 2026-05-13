@@ -80,6 +80,41 @@ def cmd_seminar(args):
         print(f"JSON結果を保存しました: {args.output}")
 
 
+def cmd_article(args):
+    from agents import ArticleGeneratorAgent
+    agent = ArticleGeneratorAgent()
+    result = agent.run(
+        topic=args.topic,
+        primary_keyword=args.keyword or "",
+        target_length=args.length,
+    )
+    try:
+        from rich.console import Console
+        from rich.panel import Panel
+        console = Console()
+        console.print("\n[bold green]✓ 記事生成エージェント 完了[/bold green]\n")
+        console.print(f"[bold]タイトル:[/bold] {result.get('title','')}")
+        console.print(f"[bold]文字数目安:[/bold] {result.get('word_count_estimate','')}文字")
+        console.print(f"[bold]SEOキーワード:[/bold] {', '.join(result.get('seo_keywords',[]))}")
+        if result.get("html_path"):
+            console.print(f"[bold]HTMLファイル:[/bold] {result['html_path']}")
+        if result.get("eyecatch_prompt"):
+            console.print(Panel(result["eyecatch_prompt"], title="アイキャッチ画像プロンプト（DALL-E/Midjourney用）", border_style="yellow"))
+        srcs = result.get("sources", [])
+        if srcs:
+            console.print("\n[bold]出典:[/bold]")
+            for s in srcs:
+                console.print(f"  ・{s.get('name','')}（{s.get('organization','')}、{s.get('year','')}）")
+    except ImportError:
+        print(f"\n=== 記事生成完了 ===")
+        print(f"タイトル: {result.get('title','')}")
+        if result.get("html_path"):
+            print(f"HTMLファイル: {result['html_path']}")
+    if args.output:
+        Path(args.output).write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
+        print(f"\nJSON結果を保存しました: {args.output}")
+
+
 def cmd_leader(args):
     from agents import LeaderAgent
     agent_list = args.agents.split(",") if args.agents else None
@@ -114,6 +149,8 @@ def main():
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 使用例:
+  python main.py article --topic "共働き家庭のNISA活用術" --keyword "NISA 共働き"
+  python main.py article --topic "iDeCoで節税しながら老後資金を作る方法" --length 4000
   python main.py research --topic "共働き家庭向けFP相談市場"
   python main.py blog --topic "NISAを始める前に確認すべき3つのこと"
   python main.py sns --topic "教育費の積み立て方"
@@ -130,7 +167,14 @@ def main():
     p_research.add_argument("--output", help="結果のJSON出力先ファイルパス")
     p_research.set_defaults(func=cmd_research)
 
-    p_blog = sub.add_parser("blog", help="ブログ記事生成")
+    p_article = sub.add_parser("article", help="高品質記事生成（文体分析・最新データ・SVG図解・SEO最適化）")
+    p_article.add_argument("--topic", required=True, help="記事テーマ")
+    p_article.add_argument("--keyword", help="主要SEOキーワード（例: 'NISA 共働き'）")
+    p_article.add_argument("--length", type=int, default=3500, help="目標文字数（デフォルト: 3500）")
+    p_article.add_argument("--output", help="結果のJSON出力先ファイルパス")
+    p_article.set_defaults(func=cmd_article)
+
+    p_blog = sub.add_parser("blog", help="ブログ記事生成（簡易版）")
     p_blog.add_argument("--topic", required=True, help="記事テーマ")
     p_blog.add_argument("--keywords", help="SEOキーワード（カンマ区切り）")
     p_blog.add_argument("--output", help="結果のJSON出力先ファイルパス")
