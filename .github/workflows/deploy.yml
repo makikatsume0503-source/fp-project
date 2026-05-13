@@ -1,24 +1,30 @@
-name: Deploy to Xserver
+name: Xserver自動デプロイ
 
 on:
   push:
     branches:
       - main
+      - claude/multi-agent-system-kma8C
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Deploy via FTP
+      - name: FTPデプロイ
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: ${{ secrets.FTP_SERVER_DIR }}
-          protocol: ftps
-          port: 21
+          server: sv12606.xserver.jp
+          username: xs234918
+          password: ${{ secrets.FTP_PASS }}
+          server-dir: /home/xs234918/fp-makikatsume.com/public_html/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            agents/**
+            output/**
+            .env
+            main.py
+            requirements.txt
+            deploy.py
