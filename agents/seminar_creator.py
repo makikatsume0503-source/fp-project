@@ -52,18 +52,9 @@ class SeminarCreatorAgent(BaseAgent):
             max_tokens=12000,
         )
 
-        try:
-            data = json.loads(raw)
-        except json.JSONDecodeError:
-            start = raw.find("{")
-            end = raw.rfind("}") + 1
-            if start != -1 and end > start:
-                try:
-                    data = json.loads(raw[start:end])
-                except json.JSONDecodeError:
-                    return {"raw_output": raw, "summary": "JSON解析に失敗しました。"}
-            else:
-                return {"raw_output": raw, "summary": "JSON解析に失敗しました。"}
+        data = self.extract_json(raw)
+        if not data:
+            return {"raw_output": raw, "summary": "JSON解析に失敗しました。"}
 
         pptx_path = self._build_pptx(data)
         data["pptx_path"] = str(pptx_path)

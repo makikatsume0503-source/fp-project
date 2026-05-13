@@ -1,3 +1,5 @@
+import json
+import re
 import anthropic
 from typing import Optional
 
@@ -88,24 +90,30 @@ class BaseAgent:
         text_parts = [b.text for b in response.content if b.type == "text"]
         return "\n".join(text_parts).strip()
 
+    @staticmethod
+    def extract_json(raw: str) -> dict | None:
+        """マークダウンコードブロックやテキストに埋め込まれたJSONを抽出してパースする。"""
+        match = re.search(r"```(?:json)?\s*(\{.*?\})\s*```", raw, re.DOTALL)
+        if match:
+            try:
+                return json.loads(match.group(1))
+            except json.JSONDecodeError:
+                pass
+        start = raw.find("{")
+        end = raw.rfind("}") + 1
+        if start != -1 and end > start:
+            try:
+                return json.loads(raw[start:end])
+            except json.JSONDecodeError:
+                pass
+        return None
+
     def call_json(
         self,
         prompt: str,
         system_prompt: str,
         max_tokens: int = 8000,
     ) -> str:
-        """JSON 出力を強制して Claude を呼び出す。"""
-        params = {
-            "model": MODEL,
-            "max_tokens": max_tokens,
-            "thinking": {"type": "adaptive"},
-            "system": self._system_blocks(system_prompt),
-            "messages": [{"role": "user", "content": prompt}],
-            "output_config": {
-                "format": {"type": "json_object"}
-            },
-        }
-        with self.client.messages.stream(**params) as stream:
-            response = stream.get_final_message()
-        text_parts = [b.text for b in response.content if b.type == "text"]
-        return "\n".join(text_parts).strip()
+        """JSON 形式で回答するよう指示して Claude を呼び出す。"""
+        json_prompt = prompt + "\n\n必ずJSONのみを出力し、コードブロックや説明文は不要です。"
+        return self.call(prompt=json_prompt, system_prompt=system_prompt, max_tokens=max_tokens)

@@ -42,14 +42,7 @@ SEOキーワード（参考）: {kw_str}
             max_tokens=10000,
         )
 
-        try:
-            return json.loads(raw)
-        except json.JSONDecodeError:
-            start = raw.find("{")
-            end = raw.rfind("}") + 1
-            if start != -1 and end > start:
-                try:
-                    return json.loads(raw[start:end])
-                except json.JSONDecodeError:
-                    pass
+        result = self.extract_json(raw)
+        if result:
+            return result
         return {"raw_output": raw, "summary": "JSON解析に失敗しました。raw_outputを参照してください。"}
