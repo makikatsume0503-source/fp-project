@@ -232,6 +232,49 @@ p:last-child { margin-bottom: 0; }
   margin-top: 48px;
 }
 
+.column-more {
+  display: none;
+}
+.column-more.is-open {
+  display: block;
+}
+.column-more .column-grid {
+  margin-top: 32px;
+}
+
+.column-toggle-wrap {
+  text-align: center;
+  margin-top: 40px;
+}
+.column-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: 1.5px solid var(--gold);
+  color: var(--navy);
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 12px 32px;
+  border-radius: 2px;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  transition: background 0.2s, color 0.2s;
+}
+.column-toggle:hover {
+  background: var(--gold);
+  color: #fff;
+}
+.column-toggle__icon {
+  font-size: 1.1rem;
+  line-height: 1;
+  color: var(--gold);
+  transition: color 0.2s;
+}
+.column-toggle:hover .column-toggle__icon {
+  color: #fff;
+}
+
 .column-card {
   background: var(--off-white);
   padding: 32px 28px;
