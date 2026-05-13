@@ -124,7 +124,7 @@ class ArticleGeneratorAgent(BaseAgent):
 【必須要素】
 1. 導入文: 読者の悩みに共感する問いかけから始める（100文字以内に主要KW含む）
 2. 本論: メリットとデメリット・注意点を必ずセットで記述
-3. データ使用時: 「（出典：〇〇、〇〇年）」を必ず文中に明記
+3. データ使用時: 「（出典：発行機関名｜資料名）」を必ず文中に明記。URLがわかる場合はURLも含める
 4. FAQセクション: 検索されやすい質問形式で3問
 5. まとめ: 行動を促す締めくくり
 6. SVG図解: 記事内に1〜2箇所、比較表または数字を視覚化する図解をSVGで生成
@@ -149,7 +149,7 @@ class ArticleGeneratorAgent(BaseAgent):
     {{"question": "Q: 質問文", "answer": "A: 回答文（100〜150文字）"}}
   ],
   "sources": [
-    {{"name": "出典名", "organization": "発行機関", "year": "年度"}}
+    {{"name": "資料名", "organization": "発行機関", "year": "年度", "url": "公式URL（わかる場合）"}}
   ],
   "internal_link_suggestions": [
     {{"anchor": "リンクテキスト", "target_topic": "リンク先記事テーマ"}}
@@ -210,11 +210,20 @@ class ArticleGeneratorAgent(BaseAgent):
 
         sources_html = ""
         if sources:
-            items = "".join(
-                f'<li>{s.get("name","")}（{s.get("organization","")}、{s.get("year","")}）</li>'
-                for s in sources
-            )
-            sources_html = f'<section class="article-sources"><h2>参考資料・出典</h2><ul>{items}</ul></section>'
+            items_html = []
+            for s in sources:
+                org  = s.get("organization", "")
+                name = s.get("name", "")
+                year = s.get("year", "")
+                url  = s.get("url", "")
+                label = f"出典：{org}｜{name}"
+                if year:
+                    label += f"（{year}）"
+                if url:
+                    items_html.append(f'<li><a href="{url}" target="_blank" rel="noopener">{label}</a></li>')
+                else:
+                    items_html.append(f'<li>{label}</li>')
+            sources_html = f'<section class="article-sources"><h2>参考資料・出典</h2><ul>{"".join(items_html)}</ul></section>'
 
         eyecatch_note = f'<!-- アイキャッチ画像プロンプト（DALL-E/Midjourney用）:\n{eyecatch_prompt}\n-->' if eyecatch_prompt else ""
 
@@ -333,10 +342,11 @@ class ArticleGeneratorAgent(BaseAgent):
                     caption = diagram.get("caption", "")
                     alt = diagram.get("alt", "")
                     if svg_code:
+                        caption_text = f"{caption}（筆者作成）" if caption else "筆者作成"
                         html_parts.append(
                             f'<div class="svg-block" role="img" aria-label="{alt}">'
                             f'{svg_code}'
-                            f'<p class="svg-caption">{caption}</p></div>'
+                            f'<p class="svg-caption">{caption_text}</p></div>'
                         )
                     break
 
