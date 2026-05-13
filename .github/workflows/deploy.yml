@@ -15,10 +15,10 @@ jobs:
       - name: FTPデプロイ
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: sv12606.xserver.jp
-          username: xs234918
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASS }}
-          server-dir: /home/xs234918/fp-makikatsume.com/public_html/
+          server-dir: ${{ secrets.FTP_SERVER_DIR }}
           exclude: |
             **/.git*
             **/.git*/**
