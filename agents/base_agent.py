@@ -93,19 +93,32 @@ class BaseAgent:
     @staticmethod
     def extract_json(raw: str) -> dict | None:
         """マークダウンコードブロックやテキストに埋め込まれたJSONを抽出してパースする。"""
-        match = re.search(r"```(?:json)?\s*(\{.*?\})\s*```", raw, re.DOTALL)
+        # そのままパース（Claude がクリーンなJSONを返した場合）
+        try:
+            return json.loads(raw.strip())
+        except json.JSONDecodeError:
+            pass
+        # コードブロック内を試す
+        match = re.search(r"```(?:json)?\s*(\{.*\})\s*```", raw, re.DOTALL)
         if match:
             try:
                 return json.loads(match.group(1))
             except json.JSONDecodeError:
                 pass
+        # 先頭の { から末尾の } を試す
         start = raw.find("{")
         end = raw.rfind("}") + 1
         if start != -1 and end > start:
+            candidate = raw[start:end]
             try:
-                return json.loads(raw[start:end])
+                return json.loads(candidate)
             except json.JSONDecodeError:
-                pass
+                # 文字列内の生の改行をエスケープして再試行
+                fixed = re.sub(r'(?<!\\)\n', r'\\n', candidate)
+                try:
+                    return json.loads(fixed)
+                except json.JSONDecodeError:
+                    pass
         return None
 
     def call_json(
