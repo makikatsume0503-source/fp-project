@@ -410,10 +410,11 @@ class ArticleGeneratorAgent(BaseAgent):
     def _make_slug(self, title: str) -> str:
         import unicodedata
         from datetime import datetime
-        slug = unicodedata.normalize("NFKC", title)
-        slug = re.sub(r"[^\w\s-]", "", slug)
-        slug = re.sub(r"[\s_]+", "-", slug).strip("-")
-        slug = slug[:40] if len(slug) > 40 else slug
+        normalized = unicodedata.normalize("NFKC", title)
+        # ASCII文字・数字・ハイフンのみ残す
+        ascii_only = re.sub(r"[^a-zA-Z0-9\s-]", "", normalized)
+        slug = re.sub(r"[\s_]+", "-", ascii_only).strip("-").lower()
+        slug = slug[:50] if len(slug) > 50 else slug
         if not slug or all(c == "-" for c in slug):
             slug = f"article-{datetime.now().strftime('%Y%m%d%H%M%S')}"
-        return slug.lower()
+        return slug
