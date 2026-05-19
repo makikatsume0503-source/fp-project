@@ -24,6 +24,22 @@
 </head>
 <body>
 
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="/" class="site-header__logo">おうちCFO</a>
+      <nav class="site-nav" id="site-nav">
+        <a href="/service/" class="site-nav__link">サービス</a>
+        <a href="/about/" class="site-nav__link">プロフィール</a>
+        <a href="/column/" class="site-nav__link">コラム</a>
+        <a href="/seminar/" class="site-nav__link">セミナー</a>
+        <a href="/contact/" class="site-nav__link btn primary">お問い合わせ</a>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-label="メニュー">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
   <main>
 
     <!-- ヒーロー画像（フルワイド） -->
@@ -240,5 +256,10 @@
     <p>© 2026 おうちCFO FP相談｜勝目麻希</p>
   </footer>
 
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const nav = document.getElementById('site-nav');
+    toggle.addEventListener('click', () => nav.classList.toggle('is-open'));
+  </script>
 </body>
 </html>

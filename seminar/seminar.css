@@ -1,34 +1,4 @@
-/* ── Seminar Header ── */
-.seminar-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: var(--white);
-  border-bottom: 1px solid rgba(0,0,0,0.08);
-  padding: 14px 0;
-}
-
-.seminar-header__inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 960px;
-}
-
-.seminar-header__logo {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 1rem;
-  letter-spacing: 0.2em;
-  color: var(--navy);
-  text-decoration: none;
-}
-
-.seminar-header__cta {
-  padding: 10px 28px;
-  font-size: 0.85rem;
-}
-
-/* ── Hero Banner（フルワイド） ── */
+/* ── Seminar Hero Banner ── */
 .seminar-hero-banner {
   width: 100%;
   overflow: hidden;
@@ -350,10 +320,6 @@
 
 /* ── Responsive ── */
 @media (max-width: 768px) {
-  .seminar-header__cta {
-    display: none;
-  }
-
   .value-grid {
     grid-template-columns: 1fr;
     gap: 20px;
