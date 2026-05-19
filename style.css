@@ -49,9 +49,6 @@ body {
 .hero-banner img {
   width: 100%;
   height: auto;
-  max-height: 520px;
-  object-fit: cover;
-  object-position: top;
   display: block;
 }
 
