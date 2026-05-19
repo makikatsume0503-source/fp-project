@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>サービス｜おうちCFO FP相談</title>
+  <meta name="description" content="家計設計・資産形成・ポイント活用など、おうちCFOのFP相談サービス詳細。初回60分の相談から始められます。" />
+  <link rel="canonical" href="https://fp-makikatsume.com/service/" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css?v=10" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="/" class="site-header__logo">おうちCFO</a>
+      <nav class="site-nav" id="site-nav">
+        <a href="/service/" class="site-nav__link">サービス</a>
+        <a href="/about/" class="site-nav__link">プロフィール</a>
+        <a href="/column/" class="site-nav__link">コラム</a>
+        <a href="/seminar/" class="site-nav__link">セミナー</a>
+        <a href="/contact/" class="site-nav__link btn primary">お問い合わせ</a>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-label="メニュー">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-hero">
+      <div class="container">
+        <p class="section-label">SERVICE</p>
+        <h1>サービス</h1>
+      </div>
+    </div>
+
+    <section class="section white">
+      <div class="container">
+        <p class="section-label center">WHAT WE DO</p>
+        <h2 class="center">相談できること</h2>
+        <div class="service-grid">
+          <article class="service-card">
+            <h3>家計と将来設計</h3>
+            <p>教育費・老後資金・毎月の支出を、家庭の未来に合わせて整理します。収入があるからこそ迷いやすい「何にどれだけ使い、残し、育てるか」を見える化。ライフプランシートを使って、10年後・20年後のお金の流れを一緒に確認します。</p>
+          </article>
+          <article class="service-card">
+            <h3>資産形成の始め方</h3>
+            <p>NISAやiDeCoなどの制度を、目的に合わせた手段としてわかりやすく整理します。「どの口座で」「何を」「どのくらい」積み立てるかを、家計の状況と照らし合わせながら考えます。始め方に迷っている方でも、ゼロから一緒に整理できます。</p>
+          </article>
+          <article class="service-card">
+            <h3>クレジットカード・<br>ポイント活用</h3>
+            <p>ホテルポイントやマイルも含め、毎月の支出を家族の楽しみにつなげる選び方を考えます。カードの選び方から還元率の考え方、旅行への活用まで、暮らしの質を高める使い方を一緒に考えます。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section off-white">
+      <div class="container">
+        <p class="section-label center">HOW IT WORKS</p>
+        <h2 class="center">相談の流れ</h2>
+        <div class="flow-list">
+          <div class="flow-item">
+            <span class="flow-num">01</span>
+            <div>
+              <h3>お問い合わせ</h3>
+              <p>フォームよりご連絡ください。ご希望の日程・相談内容の概要をお知らせいただきます。</p>
+            </div>
+          </div>
+          <div class="flow-item">
+            <span class="flow-num">02</span>
+            <div>
+              <h3>事前ヒアリング</h3>
+              <p>簡単なシートをご記入いただきます。家族構成・収入・気になっていることなど、当日の相談をスムーズに進めるための準備です。</p>
+            </div>
+          </div>
+          <div class="flow-item">
+            <span class="flow-num">03</span>
+            <div>
+              <h3>オンライン相談（60分）</h3>
+              <p>Zoomにてお話しします。現状の確認から始め、お金の優先順位を一緒に整理します。具体的な制度や手段については、ご状況に合わせてご説明します。</p>
+            </div>
+          </div>
+          <div class="flow-item">
+            <span class="flow-num">04</span>
+            <div>
+              <h3>フォローアップ</h3>
+              <p>相談後に資料をお送りします。継続相談をご希望の場合は、別途ご案内いたします。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section navy">
+      <div class="container center narrow">
+        <p class="section-label">PRICING</p>
+        <h2>料金</h2>
+        <p>初回相談は60分。料金・詳細は準備中です。<br>お気軽にお問い合わせください。</p>
+        <div style="margin-top: 40px;">
+          <a href="/contact/" class="btn primary large">お問い合わせはこちら</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 おうちCFO FP相談｜勝目麻希</p>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const nav = document.getElementById('site-nav');
+    toggle.addEventListener('click', () => nav.classList.toggle('is-open'));
+  </script>
+</body>
+</html>

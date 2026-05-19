@@ -386,3 +386,267 @@ footer {
     padding: 40px 20px;
   }
 }
+
+/* ── Site Header ── */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--white);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.site-header__logo {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.25em;
+  color: var(--navy);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.site-nav__link {
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+
+.site-nav__link:hover {
+  color: var(--gold);
+}
+
+.site-nav__link.btn {
+  color: var(--white);
+  padding: 8px 22px;
+  font-size: 0.8rem;
+}
+
+.site-nav__link.btn:hover {
+  color: var(--white);
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 1px;
+  background: var(--navy);
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+/* ── Page Hero (inner pages) ── */
+.page-hero {
+  background: var(--navy);
+  padding: 72px 0 64px;
+  text-align: center;
+}
+
+.page-hero .section-label {
+  color: var(--gold-light);
+  margin-bottom: 16px;
+}
+
+.page-hero .section-label::after {
+  background: var(--gold-light);
+  margin: 10px auto 0;
+}
+
+.page-hero h1 {
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 500;
+  font-size: 1.75rem;
+  color: var(--white);
+  letter-spacing: 0.05em;
+  line-height: 1.6;
+}
+
+/* ── Flow list ── */
+.flow-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 48px;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.flow-item {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+  padding: 32px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  position: relative;
+}
+
+.flow-item:first-child {
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+.flow-num {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.5rem;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+  line-height: 1;
+  padding-top: 2px;
+  min-width: 32px;
+}
+
+.flow-item h3 {
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.flow-item p {
+  font-size: 0.875rem;
+  margin-bottom: 0;
+}
+
+/* ── Profile ── */
+.profile-block {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 56px;
+  align-items: start;
+  margin-top: 56px;
+}
+
+.profile-photo {
+  width: 200px;
+  height: 240px;
+  background: var(--gray-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-light);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+}
+
+.profile-name {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--navy);
+  letter-spacing: 0.1em;
+  margin-bottom: 4px;
+}
+
+.profile-name-en {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 0.85rem;
+  color: var(--gold);
+  letter-spacing: 0.2em;
+  margin-bottom: 24px;
+}
+
+.profile-credentials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.credential-tag {
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  color: var(--navy);
+  border: 1px solid rgba(26,46,74,0.3);
+  padding: 3px 10px;
+}
+
+/* ── Contact form area ── */
+.contact-box {
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,0.08);
+  padding: 48px;
+  max-width: 560px;
+  margin: 48px auto 0;
+  text-align: center;
+}
+
+/* ── Responsive mobile nav ── */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: flex;
+  }
+
+  .site-nav {
+    display: none;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    flex-direction: column;
+    padding: 24px 32px;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .site-nav.is-open {
+    display: flex;
+  }
+
+  .site-nav__link.btn {
+    width: 100%;
+    text-align: center;
+    display: block;
+    padding: 12px 22px;
+  }
+
+  .site-header {
+    position: sticky;
+    top: 0;
+  }
+
+  .profile-block {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-photo {
+    width: 160px;
+    height: 200px;
+    margin: 0 auto;
+  }
+
+  .page-hero h1 {
+    font-size: 1.35rem;
+  }
+
+  .contact-box {
+    padding: 32px 24px;
+  }
+}
