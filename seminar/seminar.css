@@ -20,21 +20,63 @@
   text-align: center;
 }
 
-.seminar-hero__meta {
+.seminar-hero__badges {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   justify-content: center;
-  margin-bottom: 40px;
+  margin-bottom: 32px;
 }
 
 .seminar-badge {
   font-size: 0.8rem;
   letter-spacing: 0.08em;
   color: var(--gold-light);
-  border: 1px solid rgba(184,151,58,0.5);
-  padding: 5px 14px;
+  border: 1px solid rgba(200,169,110,0.6);
+  padding: 6px 16px;
   white-space: nowrap;
+  border-radius: 2px;
+}
+
+/* ── Value Grid ── */
+.value-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 48px;
+}
+
+.value-card {
+  background: var(--white);
+  padding: 36px 28px 32px;
+  border-top: 3px solid var(--gold);
+  position: relative;
+}
+
+.value-card__num {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2rem;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 16px;
+  line-height: 1;
+  letter-spacing: 0.05em;
+}
+
+.value-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 12px;
+  line-height: 1.6;
+  white-space: nowrap;
+}
+
+.value-card p {
+  font-size: 0.875rem;
+  line-height: 1.9;
+  color: var(--text-light);
+  margin: 0;
 }
 
 /* ── Check list ── */
@@ -73,7 +115,7 @@
   flex-direction: column;
   gap: 0;
   margin-top: 48px;
-  max-width: 680px;
+  max-width: 720px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -92,16 +134,19 @@
 
 .curriculum-num {
   font-family: "Cormorant Garamond", serif;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   color: var(--gold);
   letter-spacing: 0.05em;
   flex-shrink: 0;
   line-height: 1;
   padding-top: 2px;
+  min-width: 36px;
 }
 
 .curriculum-item h3 {
   font-size: 1rem;
+  font-weight: 700;
+  color: var(--navy);
   margin-bottom: 8px;
 }
 
@@ -109,6 +154,7 @@
   font-size: 0.875rem;
   margin-bottom: 0;
   line-height: 1.9;
+  color: var(--text-light);
 }
 
 /* ── Overview table ── */
@@ -128,7 +174,7 @@
 }
 
 .overview-table th {
-  width: 40%;
+  width: 36%;
   color: var(--navy);
   font-weight: 500;
   letter-spacing: 0.03em;
@@ -143,24 +189,140 @@
   border-top: 1px solid rgba(0,0,0,0.08);
 }
 
+.coming-tag {
+  font-size: 0.8rem;
+  color: #aaa;
+  background: #f0ede8;
+  padding: 3px 10px;
+  border-radius: 2px;
+  letter-spacing: 0.05em;
+}
+
 /* ── Lecturer ── */
-.lecturer-name {
-  font-size: 1.15rem;
-  font-weight: 500;
+.lecturer-card {
+  margin-top: 32px;
+  padding: 36px 40px;
+  background: var(--white);
+  text-align: center;
+}
+
+.lecturer-card__photo {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 15%;
+  margin-bottom: 20px;
+  border: 3px solid var(--gold);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.lecturer-card__name {
+  font-size: 1.2rem;
+  font-weight: 700;
   color: var(--navy);
   letter-spacing: 0.08em;
+  margin-bottom: 6px;
+}
+
+.lecturer-card__title {
+  font-size: 0.85rem;
+  color: var(--gold);
+  letter-spacing: 0.06em;
   margin-bottom: 20px;
-  text-align: center;
+}
+
+.lecturer-card__bio {
+  font-size: 0.9rem;
+  line-height: 1.95;
+  color: var(--text-light);
+  margin-bottom: 20px;
+}
+
+.lecturer-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  list-style: none;
+  margin-bottom: 24px;
+}
+
+.lecturer-card__tags li {
+  font-size: 0.78rem;
+  color: var(--navy);
+  border: 1px solid var(--navy);
+  padding: 4px 12px;
+  border-radius: 2px;
+  letter-spacing: 0.03em;
+}
+
+/* ── FAQ ── */
+.seminar-faq {
+  margin-top: 32px;
+  text-align: left;
+}
+
+.faq-item {
+  border: 1px solid #e8e0d0;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.faq-item summary {
+  padding: 16px 20px;
+  font-weight: 500;
+  cursor: pointer;
+  color: var(--navy);
+  list-style: none;
+  position: relative;
+  padding-right: 44px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.faq-item summary::after {
+  content: '+';
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  color: var(--gold);
+}
+
+.faq-item[open] summary::after {
+  content: '−';
+}
+
+.faq-item p {
+  padding: 0 20px 16px;
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.9;
+  color: var(--text-light);
+}
+
+/* ── Apply CTA ── */
+.seminar-apply {
+  background: var(--navy);
+}
+
+.seminar-apply__sub {
+  margin-top: 40px;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 12px;
 }
 
 /* ── Responsive ── */
 @media (max-width: 768px) {
-  .seminar-hero__title {
-    font-size: 1.5rem;
-  }
-
-  .seminar-hero {
-    padding: 72px 0 60px;
+  .value-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 
   .curriculum-item {
@@ -169,5 +331,9 @@
 
   .overview-table th {
     width: 38%;
+  }
+
+  .lecturer-card {
+    padding: 28px 24px;
   }
 }
