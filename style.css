@@ -51,7 +51,7 @@ body {
   height: auto;
   max-height: 520px;
   object-fit: cover;
-  object-position: center;
+  object-position: top;
   display: block;
 }
 
