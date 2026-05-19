@@ -1,6 +1,6 @@
 ---
 name: agent-performance-checker
-description: おうちCFOプロジェクトの各エージェント（blog-writer/seo-checker/content-updater/sns-writer/competitor-research）の定義を評価し、改善案を提案する。「エージェントの品質チェックして」「エージェント改善して」「各エージェントを見直して」などのリクエストで使用。
+description: おうちCFOプロジェクトの各エージェント（blog-writer/seo-checker/content-updater/sns-writer/competitor-research/keyword-planner/newsletter-writer/inquiry-responder/link-checker）の定義を評価し、改善案を提案する。「エージェントの品質チェックして」「エージェント改善して」「各エージェントを見直して」「エージェント定義を評価して」などのリクエストで使用。
 model: claude-sonnet-4-6
 tools:
   - Bash
