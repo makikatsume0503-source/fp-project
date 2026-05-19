@@ -55,6 +55,22 @@
   <link rel="stylesheet" href="style.css?v=10" />
 </head>
 <body>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="/" class="site-header__logo">おうちCFO</a>
+      <nav class="site-nav" id="site-nav">
+        <a href="/service/" class="site-nav__link">サービス</a>
+        <a href="/about/" class="site-nav__link">プロフィール</a>
+        <a href="/column/" class="site-nav__link">コラム</a>
+        <a href="/seminar/" class="site-nav__link">セミナー</a>
+        <a href="/contact/" class="site-nav__link btn primary">お問い合わせ</a>
+      </nav>
+      <button class="nav-toggle" id="nav-toggle" aria-label="メニュー">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
   <main>
     <section class="hero-banner">
       <picture>
@@ -66,7 +82,7 @@
     <section id="entry" class="cta-under-hero">
       <div class="container center">
         <p class="cta-lead">まずは気軽に、お話しましょう。</p>
-        <span class="btn coming-soon large">Coming soon...</span>
+        <a href="/contact/" class="btn primary large">お問い合わせ</a>
       </div>
     </section>
 
@@ -97,6 +113,9 @@
             <p>ホテルポイントやマイルも含め、毎月の支出を家族の楽しみにつなげる選び方を考えます。暮らしの質を高める活用を目指します。</p>
           </article>
         </div>
+        <div class="center" style="margin-top: 48px;">
+          <a href="/service/" class="btn primary">サービス詳細を見る</a>
+        </div>
       </div>
     </section>
 
@@ -106,6 +125,9 @@
         <h2>お金に困っていない家庭ほど、<br>選び方で未来が変わる。</h2>
         <p>大切なのは、やみくもに節約することでも、<br>流行りの投資を急いで始めることでもありません。</p>
         <p>今ある収入を、教育・経験・資産形成・家族の楽しみにどう配分するか。<br>家庭に合う判断軸を持つことで、将来の選択肢は大きく広がります。</p>
+        <div style="margin-top: 40px;">
+          <a href="/about/" class="btn primary">プロフィールを見る</a>
+        </div>
       </div>
     </section>
 
@@ -121,7 +143,7 @@
             </div>
             <h3 class="column-card__title">共働き家庭こそ「家計の設計図」が必要な理由</h3>
             <p class="column-card__excerpt">収入が2本あるからこそ、お金の流れが見えにくくなりがちです。教育費・住宅費・老後資金を同時に考えるためのステップを解説します。</p>
-            <a href="#" class="column-link">続きを読む →</a>
+            <a href="/column/" class="column-link">続きを読む →</a>
           </article>
           <article class="column-card">
             <div class="column-card__meta">
@@ -130,7 +152,7 @@
             </div>
             <h3 class="column-card__title">NISAを「とりあえず始める」前に確認したい3つのこと</h3>
             <p class="column-card__excerpt">NISAは目的ではなく手段です。始める前に家族のライフプランと照らし合わせることで、より効果的な活用ができます。</p>
-            <a href="#" class="column-link">続きを読む →</a>
+            <a href="/column/" class="column-link">続きを読む →</a>
           </article>
           <article class="column-card">
             <div class="column-card__meta">
@@ -139,8 +161,11 @@
             </div>
             <h3 class="column-card__title">家族旅行をポイントで叶える。マイルとホテルポイントの賢い使い方</h3>
             <p class="column-card__excerpt">日常の支出をポイントに変えて、家族の楽しみにつなげる方法を紹介します。カード選びから還元率の考え方まで丁寧に解説。</p>
-            <a href="#" class="column-link">続きを読む →</a>
+            <a href="/column/" class="column-link">続きを読む →</a>
           </article>
+        </div>
+        <div class="center" style="margin-top: 48px;">
+          <a href="/column/" class="btn primary">コラム一覧を見る</a>
         </div>
       </div>
     </section>
@@ -150,7 +175,7 @@
         <p class="section-label">CONTACT</p>
         <h2>まずは、話してみませんか。</h2>
         <p><strong class="highlight">初回相談は60分。</strong><br>あなたの家庭の状況をお聞きしながら、<br>一緒にお金の優先順位を整えます。</p>
-        <span class="btn coming-soon large">Coming soon...</span>
+        <a href="/contact/" class="btn primary large">お問い合わせはこちら</a>
       </div>
     </section>
   </main>
@@ -158,5 +183,11 @@
   <footer>
     <p>© 2026 おうちCFO FP相談｜勝目麻希</p>
   </footer>
+
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const nav = document.getElementById('site-nav');
+    toggle.addEventListener('click', () => nav.classList.toggle('is-open'));
+  </script>
 </body>
 </html>
